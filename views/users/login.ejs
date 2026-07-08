@@ -1,0 +1,76 @@
+<% layout("/layouts/boilerplate") %>
+
+  <style>
+    .login-fixed-viewport-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+
+      background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://a0.muscache.com/im/pictures/AirbnbPlatformAssets/AirbnbPlatformAssets-signup-and-login/original/2d46d9a0-5218-4fa7-91da-356eb8bb130b.jpeg?im_w=960&im_q=medq');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 420px;
+      z-index: 2;
+    }
+
+    body.login-page .alert {
+      position: fixed;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 450px;
+      max-width: 90%;
+      z-index: 9999;
+      margin: 0 !important;
+    }
+  </style>
+
+  <div class="login-fixed-viewport-wrapper">
+    <div class="login-card">
+      <h1 class="text-center mb-4">Login</h1>
+
+      <form action="/login" method="POST" novalidate class="needs-validation">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" name="username" class="form-control" required />
+          <div class="invalid-feedback">Please enter your username.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group">
+            <input type="password" id="password" name="password" class="form-control" required>
+            <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+            <div class="invalid-feedback">Please enter your password.</div>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2 mt-4">
+          <button class="btn btn-danger btn-lg">LogIn</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/showPassword.js"></script>
+  <script>
+    document.body.classList.add("login-page");
+  </script>
